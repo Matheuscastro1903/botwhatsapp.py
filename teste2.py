@@ -14,6 +14,19 @@ def aviso_procedimento():
     frame_conteudo.pack_forget()
     frame_topo.pack_forget()
     frame_aviso.pack(fill="both",expand=True)
+def voltar_menu():
+    frame_intrucoes.pack_forget()
+    frame_aviso.pack_forget()
+    #Retornando os frames para o menu
+    frame_topo.pack(fill="x")
+    frame_conteudo.pack(fill="both", expand=True)
+def anexar_arquivo():
+    pass
+def ultima_atualizacao():
+    pass
+def realizar_operacao():
+    pass
+    
     
 
 # Configuração da janela principal
@@ -31,7 +44,7 @@ frame_topo.pack(fill="x")
 
 
 
-titulo = tk.Label(frame_topo,text="🤖 BotWhatsapp ",bg="#1A73E8",fg="white",font=("Arial", 24, "bold"))
+titulo = tk.Label(frame_topo,text="🤖 BotWhatsapp HC ",bg="#1A73E8",fg="white",font=("Arial", 24, "bold"))
 
 titulo.pack(pady=20)
 
@@ -50,12 +63,20 @@ frame_menu = tk.Frame(frame_conteudo, bg="white", width=200)
 #caso não use o fill,o frame ocupará apenas o espcaço necessário para o conteúdo
 frame_menu.pack(side="left", fill="y")
 
+
+#Relief define como obotão aparecerá(pesquisar estilos de botões)
+#cursos="mostrar cursos do mouse se clicar em cima"
 botao1 = tk.Button(frame_menu,text="📘 Instruções",bg="white",fg="#1A73E8",font=("Arial", 12),bd=0,relief="flat",anchor="w",padx=20,command=ver_intrucoes,cursor="hand2")
+#quando pady tiver dois parâmetros(um é para criar espaços para cima,o outro para baixo)
+#anchor="w" serve para alinhar o botão em relação a alguma cordenada geográfica
 botao1.pack(fill="x", pady=(20, 10))
 
 botao2 = tk.Button(frame_menu,text="🚀 Enviar Mensagens",bg="white",fg="#1A73E8",font=("Arial", 12),bd=0,relief="flat",anchor="w",padx=20,command=aviso_procedimento,cursor="hand2")
 
 botao2.pack(fill="x", pady=10)
+
+botao3=tk.Button(frame_menu,text="📄Anexar arquivo",bg="white",fg="#1A73E8",font=("Arial", 12),bd=0,relief="flat",anchor="w",padx=20,command=anexar_arquivo,cursor="hand2")
+botao3.pack(fill="x", pady=10)
 
 # Area principal de conteúdo
 #padx=30, pady=30 serve para criar espaços em relação ao frame
@@ -71,11 +92,11 @@ texto_instrucao.pack()
 
 #Criando frame do rodapé
 #height=100 é usado para definir a altura do frame
-frame_rodape = tk.Frame(janela, bg="#e8eaed", height=30)
+frame_rodape = tk.Frame(janela, bg="#ffffff", height=30)
 frame_rodape.pack(fill="x", side="bottom")
 #side="bottom"=Coloque este widget grudado no final da janela (parte inferior).
 
-texto_rodape = tk.Label(frame_rodape,text="Versão 1.0 • Suporte: contato@123.com",bg="#e8eaed",fg="#5f6368",font=("Arial", 10))
+texto_rodape = tk.Label(frame_rodape,text="Versão 1.0 • Suporte: contato@123.com",bg="#ffffff",fg="#5f6368",font=("Arial", 10))
 
 texto_rodape.pack(pady=5)
 
@@ -116,8 +137,24 @@ label_textoaviso=tk.Label(frame_aviso,
                           )
 # justify="left" usar para deixar o texto a esquerda
 # wraplength=600 serve para quebrar linha quando atingir 600 pixels
-#deixar o pack sem nda,irá colocar o texto no centro
+#NÃO É POSSÍVEL USAR GRID E PACK NO MESMO FRAME(PRECISA ESCOLHER ENTRE UM OU OUTRO) 
+#O gerenciador pack() organiza os widgets em uma única direção dentro do mesmo contêiner (ou seja, dentro do mesmo frame)
+
+#pack vai organizando de cima para baixo,sendo necessário criar outro frame para os botões para ser possível coloca-los um do lado do outro
+
+
 label_textoaviso.pack()
+#deixar o pack sem nda,irá colocar o texto no centro
+
+frame_botoes = tk.Frame(frame_aviso, bg="#f5f1f1")
+frame_botoes.pack(pady=20)  # centraliza o frame dos botões
+
+botao_voltar =tk.Button(frame_aviso,text="Voltar menu",bg="#ffffff",fg="#1A73E8",font=("Arial", 12),bd=0,relief="flat",anchor="center",padx=20,command=voltar_menu,cursor="hand2")
+botao_voltar.pack(side="left", padx=10)
+
+botao_realizar=tk.Button(frame_aviso,text="Iniciar programa",bg="#ffffff",fg="#1A73E8",font=("Arial", 12),bd=0,relief="flat",anchor="center",padx=20,command=voltar_menu,cursor="hand2")
+botao_realizar.pack(side="left", padx=10)
+
 
 
 
