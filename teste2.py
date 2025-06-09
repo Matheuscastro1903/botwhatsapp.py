@@ -11,7 +11,10 @@ def ver_intrucoes():
     frame_intrucoes.pack(fill="both",expand=True)
 
 def aviso_procedimento():
-    messagebox.showinfo("Aviso", "Certifique-se de que todos os dados estão preenchidos corretamente antes de prosseguir.")
+    frame_conteudo.pack_forget()
+    frame_topo.pack_forget()
+    frame_aviso.pack(fill="both",expand=True)
+    
 
 # Configuração da janela principal
 janela = tk.Tk()
@@ -80,6 +83,41 @@ texto_rodape.pack(pady=5)
 
 #frame instruções
 frame_intrucoes=tk.Frame(janela,bg="#ffffff")
+
+
+#frame aviso
+frame_aviso=tk.Frame(janela,bg="#ffffff")
+frame_topoaviso=tk.Frame(frame_aviso,bg="#1A73E8", height=80)
+frame_topoaviso.pack(fill="x")
+label_aviso=tk.Label(frame_topoaviso,text="⚠ ATENÇÃO",bg="#1A73E8",fg="white",font=("Arial", 24, "bold"))
+#bold="negrito"
+#pack define onde vai ficar o frame de forma mais humana,grid usa coordenadas para colocar o frame no local exato que deseja
+label_aviso.pack(pady=50)
+#pady=padding y(espaçamento em y)
+
+label_textoaviso=tk.Label(frame_aviso,
+                          text="PARA O BOM FUNCIONAMENTO DESSE PROGRAMA,PRESTE ATENÇÃO:\n" 
+                          "\n"
+                          "-Deixar a interface do computador trabalhar sozinha\n" \
+                          "\n" 
+                          "-Não toque no mouse nem no teclado\n" \
+                          "\n"
+                          "-Deve esperar até o sistema parar totalmente(Parar de enviar mensagens por um tempo maior que 10 seg)\n" \
+                          "\n"
+                          "-Esse programa trabalha sozinho,não necessita de interferência humana em seu funcionamento\n" \
+                          "\n" 
+                          "-Certifique-se que as instruções estão sendo seguidas corretamente,pois caso esteja errada,você terá que corrigir manualmente\n" \
+                          "\n" 
+                          "-É de extrema importância que para o bom funcioamento do programa,o arquivo csv esteja organizado da forma correta\n" \
+                          "\n"
+                          "-Sistema não funcionará apenas se a forma como o arquivo está organizado(nome dos pacientes,tipo de exame,data e hora do exame) ou\n"
+                          "não esteja correto ou tenha algum erro de sintaxe",bg="#ffffff",fg="#202935",font=("Arial",10,"bold"), justify="left", wraplength=600
+
+                          )
+# justify="left" usar para deixar o texto a esquerda
+# wraplength=600 serve para quebrar linha quando atingir 600 pixels
+#deixar o pack sem nda,irá colocar o texto no centro
+label_textoaviso.pack()
 
 
 
