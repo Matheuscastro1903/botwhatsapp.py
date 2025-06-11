@@ -1,6 +1,13 @@
 import tkinter as tk
 from tkinter import messagebox
 
+#pensar em como irá ser compartilhado o sistema
+#fazer função de anexar_arquivo
+#fazer função para usar data do sistema
+#fazer texto de orientação
+#terminar parte de realizar operação
+#melhorar texto de avisos
+
 
 
 #frames que estão "presos" na janela=conteudo,topo,rodapé

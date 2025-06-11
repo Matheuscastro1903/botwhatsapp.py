@@ -26,7 +26,7 @@ texto_principal=Label(frame_inicio,text="Bem vindo ao sistema de automação do 
 texto_principal.grid(column=0, row=0, pady=(0, 40))
 
 mostrar_opcao=Label(frame_inicio,text="Aperte na opção que você deseja",bg="white",fg="blue",font=("Arial",16))
-mostrar_opcao.grid(column=0, row=2, pady=(0, 40))
+mostrar_opcao.grid(column=0, row=2, pady=(0, 40)) 
 
 
 texto_aviso=Label(frame_inicio,text="Antes de fazer procedimento,tenha certeza que está seguindo todas as intruções",bg="white",fg="blue",font="Arial,16")
